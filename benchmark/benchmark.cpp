@@ -42,7 +42,6 @@ BENCHMARK_DEFINE_F(FrameWorkBenchmark, TestSolution)(benchmark::State& state) {
     for (auto _ : state) {
         for(int i = 0; i < query_.size(); i += dimension_) {
             // std::cout<< "in testing" << i << " dimension=" << dimension_ << "size=" << query_.size() << std::endl;
-            int* res = (int*)malloc(10 * sizeof(int));
             solution_.search(std::vector<float>(query_.begin() + i, query_.begin() + i + dimension_), res_);
             benchmark::DoNotOptimize(res_);
             // std::cout<< "end testing" << i << " dimension=" << dimension_ << "size=" << query_.size() << std::endl;
